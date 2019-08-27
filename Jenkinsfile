@@ -1,7 +1,7 @@
 pipeline {
 
 agent { label 'master' }
-
+stages {
 stage("cloning from git")
 {
 steps { echo "Am cloning from git" }
@@ -15,6 +15,7 @@ steps { echo "Am building using Maven" }
 stage("Results")
 {
 steps { echo "This is the test stage" }
+}
 }
 
 }
