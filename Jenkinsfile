@@ -9,7 +9,7 @@ agent { label 'master' }
 	}
 
 stages {
-	stage("cloning from git")
+	stage("cloning from the git")
 	{
 	steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/Sample-maven-war-app.git' }
 	}
