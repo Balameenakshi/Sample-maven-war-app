@@ -1,20 +1,28 @@
 pipeline {
 
 agent { label 'master' }
+
+tools 
+{ 
+maven "Maven3"
+jdk "jdk 1.8"
+}
+
 stages {
 stage("cloning from git")
 {
-steps { echo "Am cloning from git" }
+steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/Sample-maven-war-app.git' }
 }
 
 stage("Build using Maven")
 {
-steps { echo "Am building using Maven" }
+steps { 
+bat(/"maven\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
 }
 
 stage("Results")
 {
-steps { echo "This is the test stage" }
+steps { archiveArtifacts 'target/*.war' }
 }
 }
 
