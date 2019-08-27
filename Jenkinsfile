@@ -17,7 +17,7 @@ steps { git credentialsId: 'Maven-Jar', url: 'https://github.com/Balameenakshi/S
 stage("Build using Maven")
 {
 steps { 
-bat(/"maven\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
+bat(/"Maven3\bin\mvn" -Dmaven.test.failure.ignore clean package/) }
 }
 
 stage("Results")
